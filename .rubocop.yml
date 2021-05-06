@@ -1,0 +1,204 @@
+require: rubocop-performance
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: true
+  IndentationWidth: 2
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/ElseAlignment:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/EndAlignment:
+  Enabled: false
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Layout/LineLength:
+  Max: 120
+  # Allow comments to be long
+  IgnoredPatterns: ['\A#']
+
+# https://rubocop.readthedocs.io/en/latest/cops_metrics/#metrics
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - 'spec/**/*'
+    - 'webdriver/**/*'
+Lint/UselessAssignment:
+  Exclude:
+    - 'spec/**/*'
+    - 'webdriver/**/*'
+
+# https://rubocop.readthedocs.io/en/latest/cops_naming/
+Naming/AccessorMethodName:
+  Enabled: false
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'lib/tomato/spec_helpers.rb'
+    - 'lib/tomato/spec_helpers/*.rb'
+Naming/MethodParameterName:
+  Enabled: false
+
+# https://rubocop.readthedocs.io/en/latest/cops_style/
+Style/AccessModifierDeclarations:
+  EnforcedStyle: inline
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/CaseEquality:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/FormatStringToken:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+# If Rubocop see "x.to_f / y.to_f" it'll auto-fix it to "x.to_f / y"
+# But if y is Money, it will break. We could handle this Cop differently
+# but `x.to_f.fdiv(y)` is gross.
+Style/FloatDivision:
+  Enabled: false
+Style/FormatString:
+  EnforcedStyle: percent
+Style/NumericPredicate:
+  IgnoredMethods: ['where']
+  Exclude: ['spec/**/*', 'db/migrations/**']
+Style/RedundantReturn:
+  Enabled: false
+Style/RedundantSelf:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: false
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+Lint/DuplicateElsifCondition:
+  Enabled: true
+Lint/DuplicateRescueException:
+  Enabled: true
+Lint/EmptyConditionalBody:
+  Enabled: true
+Lint/FloatComparison:
+  Enabled: true
+Lint/MissingSuper:
+  Enabled: true
+Lint/MixedRegexpCaptureTypes:
+  Enabled: false
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/SelfAssignment:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+Lint/UnreachableLoop:
+  Enabled: true
+Style/AccessorGrouping:
+  Enabled: true
+Style/ArrayCoercion:
+  Enabled: true
+Style/BisectedAttrAccessor:
+  Enabled: true
+Style/CaseLikeIf:
+  Enabled: false
+Style/ExplicitBlockArgument:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+Style/GlobalStdStream:
+  Enabled: true
+Style/HashAsLastArrayItem:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashLikeCase:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/OptionalBooleanParameter:
+  Enabled: true
+Style/RedundantAssignment:
+  Enabled: true
+Style/RedundantFetchBlock:
+  Enabled: true
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+Style/RedundantRegexpEscape:
+  Enabled: true
+Style/SingleArgumentDig:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true
+Style/StringConcatenation:
+  Enabled: false
+Performance/AncestorsInclude:
+  Enabled: true
+Performance/BigDecimalWithNumericArgument:
+  Enabled: true
+Performance/RedundantSortBlock:
+  Enabled: true
+Performance/RedundantStringChars:
+  Enabled: true
+Performance/ReverseFirst:
+  Enabled: true
+Performance/SortReverse:
+  Enabled: true
+Performance/Squeeze:
+  Enabled: true
+Performance/StringInclude:
+  Enabled: true
